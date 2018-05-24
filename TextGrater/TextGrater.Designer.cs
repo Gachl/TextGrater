@@ -85,7 +85,7 @@
             this.scContext.Location = new System.Drawing.Point(3, 16);
             this.scContext.MultipleSelection = true;
             this.scContext.Name = "scContext";
-            this.scContext.Size = new System.Drawing.Size(709, 495);
+            this.scContext.Size = new System.Drawing.Size(714, 495);
             this.scContext.TabIndex = 2;
             this.scContext.UseTabs = true;
             this.scContext.TextChanged += new System.EventHandler(this.scintilla1_TextChanged);
@@ -114,7 +114,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(872, 606);
+            this.splitContainer1.Size = new System.Drawing.Size(886, 606);
             this.splitContainer1.SplitterDistance = 514;
             this.splitContainer1.TabIndex = 4;
             this.splitContainer1.TabStop = false;
@@ -136,8 +136,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.gbOperationMode);
             this.splitContainer2.Panel2.Controls.Add(this.gbTemplates);
             this.splitContainer2.Panel2.Controls.Add(this.gbRxOptions);
-            this.splitContainer2.Size = new System.Drawing.Size(872, 514);
-            this.splitContainer2.SplitterDistance = 715;
+            this.splitContainer2.Size = new System.Drawing.Size(886, 514);
+            this.splitContainer2.SplitterDistance = 720;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 1;
             this.splitContainer2.TabStop = false;
@@ -148,20 +148,18 @@
             this.gbContext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbContext.Location = new System.Drawing.Point(0, 0);
             this.gbContext.Name = "gbContext";
-            this.gbContext.Size = new System.Drawing.Size(715, 514);
+            this.gbContext.Size = new System.Drawing.Size(720, 514);
             this.gbContext.TabIndex = 1;
             this.gbContext.TabStop = false;
             this.gbContext.Text = "Con&text";
             // 
             // gbOperationMode
             // 
-            this.gbOperationMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.gbOperationMode.Controls.Add(this.rbClipboardMode);
             this.gbOperationMode.Controls.Add(this.rbContextMode);
             this.gbOperationMode.Location = new System.Drawing.Point(0, 229);
             this.gbOperationMode.Name = "gbOperationMode";
-            this.gbOperationMode.Size = new System.Drawing.Size(159, 61);
+            this.gbOperationMode.Size = new System.Drawing.Size(162, 61);
             this.gbOperationMode.TabIndex = 13;
             this.gbOperationMode.TabStop = false;
             this.gbOperationMode.Text = "Oper&ation mode";
@@ -195,7 +193,7 @@
             this.gbTemplates.Controls.Add(this.splitContainer4);
             this.gbTemplates.Location = new System.Drawing.Point(0, 296);
             this.gbTemplates.Name = "gbTemplates";
-            this.gbTemplates.Size = new System.Drawing.Size(156, 215);
+            this.gbTemplates.Size = new System.Drawing.Size(162, 215);
             this.gbTemplates.TabIndex = 16;
             this.gbTemplates.TabStop = false;
             this.gbTemplates.Text = "Temp&lates";
@@ -217,7 +215,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.btnRemoveTemplate);
             this.splitContainer4.Panel2.Controls.Add(this.btnSaveTemplate);
-            this.splitContainer4.Size = new System.Drawing.Size(150, 196);
+            this.splitContainer4.Size = new System.Drawing.Size(156, 196);
             this.splitContainer4.SplitterDistance = 170;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 0;
@@ -228,13 +226,13 @@
             this.lbTemplates.FormattingEnabled = true;
             this.lbTemplates.Location = new System.Drawing.Point(0, 0);
             this.lbTemplates.Name = "lbTemplates";
-            this.lbTemplates.Size = new System.Drawing.Size(150, 170);
+            this.lbTemplates.Size = new System.Drawing.Size(156, 170);
             this.lbTemplates.TabIndex = 17;
             this.lbTemplates.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTemplates_MouseDoubleClick);
             // 
             // btnRemoveTemplate
             // 
-            this.btnRemoveTemplate.Location = new System.Drawing.Point(75, 2);
+            this.btnRemoveTemplate.Location = new System.Drawing.Point(79, 2);
             this.btnRemoveTemplate.Name = "btnRemoveTemplate";
             this.btnRemoveTemplate.Size = new System.Drawing.Size(74, 23);
             this.btnRemoveTemplate.TabIndex = 19;
@@ -263,7 +261,7 @@
             this.gbRxOptions.Controls.Add(this.cbRxOIgnoreCase);
             this.gbRxOptions.Location = new System.Drawing.Point(0, 0);
             this.gbRxOptions.Name = "gbRxOptions";
-            this.gbRxOptions.Size = new System.Drawing.Size(159, 225);
+            this.gbRxOptions.Size = new System.Drawing.Size(162, 225);
             this.gbRxOptions.TabIndex = 3;
             this.gbRxOptions.TabStop = false;
             this.gbRxOptions.Text = "Rx &options";
@@ -274,7 +272,7 @@
             this.gbRxOLineMode.Controls.Add(this.rbRxOLSingleline);
             this.gbRxOLineMode.Location = new System.Drawing.Point(3, 157);
             this.gbRxOLineMode.Name = "gbRxOLineMode";
-            this.gbRxOLineMode.Size = new System.Drawing.Size(150, 66);
+            this.gbRxOLineMode.Size = new System.Drawing.Size(156, 66);
             this.gbRxOLineMode.TabIndex = 10;
             this.gbRxOLineMode.TabStop = false;
             this.gbRxOLineMode.Text = "Li&ne mode";
@@ -388,8 +386,8 @@
             this.splitContainer3.Panel2.Controls.Add(this.btnRemoveRegexEditor);
             this.splitContainer3.Panel2.Controls.Add(this.btnAddRegexEditor);
             this.splitContainer3.Panel2.Controls.Add(this.btnApply);
-            this.splitContainer3.Size = new System.Drawing.Size(872, 88);
-            this.splitContainer3.SplitterDistance = 798;
+            this.splitContainer3.Size = new System.Drawing.Size(886, 88);
+            this.splitContainer3.SplitterDistance = 810;
             this.splitContainer3.TabIndex = 0;
             this.splitContainer3.TabStop = false;
             // 
@@ -417,7 +415,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 606);
+            this.ClientSize = new System.Drawing.Size(886, 606);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
