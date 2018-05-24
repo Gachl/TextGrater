@@ -35,6 +35,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.gbContext = new System.Windows.Forms.GroupBox();
+            this.gbOperationMode = new System.Windows.Forms.GroupBox();
+            this.rbClipboardMode = new System.Windows.Forms.RadioButton();
+            this.rbContextMode = new System.Windows.Forms.RadioButton();
             this.gbTemplates = new System.Windows.Forms.GroupBox();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.lbTemplates = new System.Windows.Forms.ListBox();
@@ -63,6 +66,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.gbContext.SuspendLayout();
+            this.gbOperationMode.SuspendLayout();
             this.gbTemplates.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
@@ -81,8 +85,8 @@
             this.scContext.Location = new System.Drawing.Point(3, 16);
             this.scContext.MultipleSelection = true;
             this.scContext.Name = "scContext";
-            this.scContext.Size = new System.Drawing.Size(703, 495);
-            this.scContext.TabIndex = 1;
+            this.scContext.Size = new System.Drawing.Size(709, 495);
+            this.scContext.TabIndex = 2;
             this.scContext.UseTabs = true;
             this.scContext.TextChanged += new System.EventHandler(this.scintilla1_TextChanged);
             // 
@@ -91,10 +95,10 @@
             this.btnApply.Location = new System.Drawing.Point(3, 60);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(63, 23);
-            this.btnApply.TabIndex = 14;
+            this.btnApply.TabIndex = 22;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.button1_Click);
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // splitContainer1
             // 
@@ -129,10 +133,11 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.gbOperationMode);
             this.splitContainer2.Panel2.Controls.Add(this.gbTemplates);
             this.splitContainer2.Panel2.Controls.Add(this.gbRxOptions);
             this.splitContainer2.Size = new System.Drawing.Size(872, 514);
-            this.splitContainer2.SplitterDistance = 709;
+            this.splitContainer2.SplitterDistance = 715;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 1;
             this.splitContainer2.TabStop = false;
@@ -143,20 +148,55 @@
             this.gbContext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbContext.Location = new System.Drawing.Point(0, 0);
             this.gbContext.Name = "gbContext";
-            this.gbContext.Size = new System.Drawing.Size(709, 514);
-            this.gbContext.TabIndex = 0;
+            this.gbContext.Size = new System.Drawing.Size(715, 514);
+            this.gbContext.TabIndex = 1;
             this.gbContext.TabStop = false;
             this.gbContext.Text = "Con&text";
+            // 
+            // gbOperationMode
+            // 
+            this.gbOperationMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbOperationMode.Controls.Add(this.rbClipboardMode);
+            this.gbOperationMode.Controls.Add(this.rbContextMode);
+            this.gbOperationMode.Location = new System.Drawing.Point(0, 229);
+            this.gbOperationMode.Name = "gbOperationMode";
+            this.gbOperationMode.Size = new System.Drawing.Size(159, 61);
+            this.gbOperationMode.TabIndex = 13;
+            this.gbOperationMode.TabStop = false;
+            this.gbOperationMode.Text = "Oper&ation mode";
+            // 
+            // rbClipboardMode
+            // 
+            this.rbClipboardMode.AutoSize = true;
+            this.rbClipboardMode.Location = new System.Drawing.Point(3, 39);
+            this.rbClipboardMode.Name = "rbClipboardMode";
+            this.rbClipboardMode.Size = new System.Drawing.Size(69, 17);
+            this.rbClipboardMode.TabIndex = 15;
+            this.rbClipboardMode.Text = "Clipboard";
+            this.rbClipboardMode.UseVisualStyleBackColor = true;
+            // 
+            // rbContextMode
+            // 
+            this.rbContextMode.AutoSize = true;
+            this.rbContextMode.Checked = true;
+            this.rbContextMode.Location = new System.Drawing.Point(3, 16);
+            this.rbContextMode.Name = "rbContextMode";
+            this.rbContextMode.Size = new System.Drawing.Size(83, 17);
+            this.rbContextMode.TabIndex = 14;
+            this.rbContextMode.TabStop = true;
+            this.rbContextMode.Text = "Context field";
+            this.rbContextMode.UseVisualStyleBackColor = true;
             // 
             // gbTemplates
             // 
             this.gbTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbTemplates.Controls.Add(this.splitContainer4);
-            this.gbTemplates.Location = new System.Drawing.Point(0, 229);
+            this.gbTemplates.Location = new System.Drawing.Point(0, 296);
             this.gbTemplates.Name = "gbTemplates";
-            this.gbTemplates.Size = new System.Drawing.Size(159, 282);
-            this.gbTemplates.TabIndex = 0;
+            this.gbTemplates.Size = new System.Drawing.Size(156, 215);
+            this.gbTemplates.TabIndex = 16;
             this.gbTemplates.TabStop = false;
             this.gbTemplates.Text = "Temp&lates";
             // 
@@ -177,8 +217,8 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.btnRemoveTemplate);
             this.splitContainer4.Panel2.Controls.Add(this.btnSaveTemplate);
-            this.splitContainer4.Size = new System.Drawing.Size(153, 263);
-            this.splitContainer4.SplitterDistance = 237;
+            this.splitContainer4.Size = new System.Drawing.Size(150, 196);
+            this.splitContainer4.SplitterDistance = 170;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -188,16 +228,16 @@
             this.lbTemplates.FormattingEnabled = true;
             this.lbTemplates.Location = new System.Drawing.Point(0, 0);
             this.lbTemplates.Name = "lbTemplates";
-            this.lbTemplates.Size = new System.Drawing.Size(153, 237);
-            this.lbTemplates.TabIndex = 9;
+            this.lbTemplates.Size = new System.Drawing.Size(150, 170);
+            this.lbTemplates.TabIndex = 17;
             this.lbTemplates.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTemplates_MouseDoubleClick);
             // 
             // btnRemoveTemplate
             // 
             this.btnRemoveTemplate.Location = new System.Drawing.Point(75, 2);
             this.btnRemoveTemplate.Name = "btnRemoveTemplate";
-            this.btnRemoveTemplate.Size = new System.Drawing.Size(77, 23);
-            this.btnRemoveTemplate.TabIndex = 11;
+            this.btnRemoveTemplate.Size = new System.Drawing.Size(74, 23);
+            this.btnRemoveTemplate.TabIndex = 19;
             this.btnRemoveTemplate.Text = "Remove";
             this.btnRemoveTemplate.UseVisualStyleBackColor = true;
             this.btnRemoveTemplate.Click += new System.EventHandler(this.btnRemoveTemplate_Click);
@@ -207,7 +247,7 @@
             this.btnSaveTemplate.Location = new System.Drawing.Point(2, 2);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
             this.btnSaveTemplate.Size = new System.Drawing.Size(67, 23);
-            this.btnSaveTemplate.TabIndex = 10;
+            this.btnSaveTemplate.TabIndex = 18;
             this.btnSaveTemplate.Text = "Save";
             this.btnSaveTemplate.UseVisualStyleBackColor = true;
             this.btnSaveTemplate.Click += new System.EventHandler(this.btnSaveTemplate_Click);
@@ -224,7 +264,7 @@
             this.gbRxOptions.Location = new System.Drawing.Point(0, 0);
             this.gbRxOptions.Name = "gbRxOptions";
             this.gbRxOptions.Size = new System.Drawing.Size(159, 225);
-            this.gbRxOptions.TabIndex = 0;
+            this.gbRxOptions.TabIndex = 3;
             this.gbRxOptions.TabStop = false;
             this.gbRxOptions.Text = "Rx &options";
             // 
@@ -235,9 +275,9 @@
             this.gbRxOLineMode.Location = new System.Drawing.Point(3, 157);
             this.gbRxOLineMode.Name = "gbRxOLineMode";
             this.gbRxOLineMode.Size = new System.Drawing.Size(150, 66);
-            this.gbRxOLineMode.TabIndex = 0;
+            this.gbRxOLineMode.TabIndex = 10;
             this.gbRxOLineMode.TabStop = false;
-            this.gbRxOLineMode.Text = "Line mode";
+            this.gbRxOLineMode.Text = "Li&ne mode";
             // 
             // rbRxOLMultiline
             // 
@@ -245,7 +285,7 @@
             this.rbRxOLMultiline.Location = new System.Drawing.Point(6, 42);
             this.rbRxOLMultiline.Name = "rbRxOLMultiline";
             this.rbRxOLMultiline.Size = new System.Drawing.Size(63, 17);
-            this.rbRxOLMultiline.TabIndex = 0;
+            this.rbRxOLMultiline.TabIndex = 12;
             this.rbRxOLMultiline.Text = "&Multiline";
             this.ttRxOptions.SetToolTip(this.rbRxOLMultiline, "Multiline mode. Changes the meaning of ^ and $ so they match at the beginning\r\nan" +
         "d end, respectively, of any line, and not just the beginning and end of the\r\nent" +
@@ -259,7 +299,7 @@
             this.rbRxOLSingleline.Location = new System.Drawing.Point(6, 19);
             this.rbRxOLSingleline.Name = "rbRxOLSingleline";
             this.rbRxOLSingleline.Size = new System.Drawing.Size(70, 17);
-            this.rbRxOLSingleline.TabIndex = 8;
+            this.rbRxOLSingleline.TabIndex = 11;
             this.rbRxOLSingleline.TabStop = true;
             this.rbRxOLSingleline.Text = "&Singleline";
             this.ttRxOptions.SetToolTip(this.rbRxOLSingleline, "Specifies single-line mode. Changes the meaning of the dot (.) so it matches\r\neve" +
@@ -272,7 +312,7 @@
             this.cbRxOCultureInvariant.Location = new System.Drawing.Point(6, 134);
             this.cbRxOCultureInvariant.Name = "cbRxOCultureInvariant";
             this.cbRxOCultureInvariant.Size = new System.Drawing.Size(102, 17);
-            this.cbRxOCultureInvariant.TabIndex = 7;
+            this.cbRxOCultureInvariant.TabIndex = 9;
             this.cbRxOCultureInvariant.Text = "&Culture invariant";
             this.ttRxOptions.SetToolTip(this.cbRxOCultureInvariant, "Specifies that cultural differences in language is ignored.");
             this.cbRxOCultureInvariant.UseVisualStyleBackColor = true;
@@ -283,7 +323,7 @@
             this.cbRxOECMAScript.Location = new System.Drawing.Point(6, 111);
             this.cbRxOECMAScript.Name = "cbRxOECMAScript";
             this.cbRxOECMAScript.Size = new System.Drawing.Size(86, 17);
-            this.cbRxOECMAScript.TabIndex = 6;
+            this.cbRxOECMAScript.TabIndex = 8;
             this.cbRxOECMAScript.Text = "&ECMA Script";
             this.ttRxOptions.SetToolTip(this.cbRxOECMAScript, resources.GetString("cbRxOECMAScript.ToolTip"));
             this.cbRxOECMAScript.UseVisualStyleBackColor = true;
@@ -294,7 +334,7 @@
             this.cbRxORightToLeft.Location = new System.Drawing.Point(6, 88);
             this.cbRxORightToLeft.Name = "cbRxORightToLeft";
             this.cbRxORightToLeft.Size = new System.Drawing.Size(80, 17);
-            this.cbRxORightToLeft.TabIndex = 5;
+            this.cbRxORightToLeft.TabIndex = 7;
             this.cbRxORightToLeft.Text = "&Right to left";
             this.ttRxOptions.SetToolTip(this.cbRxORightToLeft, "Specifies that the search will be from right to left instead of from left to righ" +
         "t.");
@@ -306,7 +346,7 @@
             this.cbRxOIgnorePatternWhitespace.Location = new System.Drawing.Point(6, 65);
             this.cbRxOIgnorePatternWhitespace.Name = "cbRxOIgnorePatternWhitespace";
             this.cbRxOIgnorePatternWhitespace.Size = new System.Drawing.Size(149, 17);
-            this.cbRxOIgnorePatternWhitespace.TabIndex = 4;
+            this.cbRxOIgnorePatternWhitespace.TabIndex = 6;
             this.cbRxOIgnorePatternWhitespace.Text = "Ignore &pattern whitespace";
             this.ttRxOptions.SetToolTip(this.cbRxOIgnorePatternWhitespace, resources.GetString("cbRxOIgnorePatternWhitespace.ToolTip"));
             this.cbRxOIgnorePatternWhitespace.UseVisualStyleBackColor = true;
@@ -317,7 +357,7 @@
             this.cbRxOExplicitCapture.Location = new System.Drawing.Point(6, 42);
             this.cbRxOExplicitCapture.Name = "cbRxOExplicitCapture";
             this.cbRxOExplicitCapture.Size = new System.Drawing.Size(98, 17);
-            this.cbRxOExplicitCapture.TabIndex = 3;
+            this.cbRxOExplicitCapture.TabIndex = 5;
             this.cbRxOExplicitCapture.Text = "E&xplicit capture";
             this.ttRxOptions.SetToolTip(this.cbRxOExplicitCapture, resources.GetString("cbRxOExplicitCapture.ToolTip"));
             this.cbRxOExplicitCapture.UseVisualStyleBackColor = true;
@@ -328,7 +368,7 @@
             this.cbRxOIgnoreCase.Location = new System.Drawing.Point(6, 19);
             this.cbRxOIgnoreCase.Name = "cbRxOIgnoreCase";
             this.cbRxOIgnoreCase.Size = new System.Drawing.Size(82, 17);
-            this.cbRxOIgnoreCase.TabIndex = 2;
+            this.cbRxOIgnoreCase.TabIndex = 4;
             this.cbRxOIgnoreCase.Text = "&Ignore case";
             this.ttRxOptions.SetToolTip(this.cbRxOIgnoreCase, "Specifies case-insensitive matching.");
             this.cbRxOIgnoreCase.UseVisualStyleBackColor = true;
@@ -358,7 +398,7 @@
             this.btnRemoveRegexEditor.Location = new System.Drawing.Point(3, 31);
             this.btnRemoveRegexEditor.Name = "btnRemoveRegexEditor";
             this.btnRemoveRegexEditor.Size = new System.Drawing.Size(63, 23);
-            this.btnRemoveRegexEditor.TabIndex = 13;
+            this.btnRemoveRegexEditor.TabIndex = 21;
             this.btnRemoveRegexEditor.Text = "Remove";
             this.btnRemoveRegexEditor.UseVisualStyleBackColor = true;
             this.btnRemoveRegexEditor.Click += new System.EventHandler(this.btnRemoveRegexEditor_Click);
@@ -368,7 +408,7 @@
             this.btnAddRegexEditor.Location = new System.Drawing.Point(3, 2);
             this.btnAddRegexEditor.Name = "btnAddRegexEditor";
             this.btnAddRegexEditor.Size = new System.Drawing.Size(63, 23);
-            this.btnAddRegexEditor.TabIndex = 12;
+            this.btnAddRegexEditor.TabIndex = 20;
             this.btnAddRegexEditor.Text = "Add";
             this.btnAddRegexEditor.UseVisualStyleBackColor = true;
             this.btnAddRegexEditor.Click += new System.EventHandler(this.btnAddRegexEditor_Click);
@@ -393,6 +433,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.gbContext.ResumeLayout(false);
+            this.gbOperationMode.ResumeLayout(false);
+            this.gbOperationMode.PerformLayout();
             this.gbTemplates.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
@@ -435,6 +477,9 @@
         private System.Windows.Forms.ListBox lbTemplates;
         private System.Windows.Forms.Button btnSaveTemplate;
         private System.Windows.Forms.Button btnRemoveTemplate;
+        private System.Windows.Forms.GroupBox gbOperationMode;
+        private System.Windows.Forms.RadioButton rbClipboardMode;
+        private System.Windows.Forms.RadioButton rbContextMode;
     }
 }
 

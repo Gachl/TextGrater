@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -30,8 +31,11 @@ namespace TextGrater
 
     public partial class TextGrater : Form
     {
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
+
         private DateTime lastChange = DateTime.Now;
-        List<RegularExpressionEditor> regexEditors = new List<RegularExpressionEditor>();
+        private List<RegularExpressionEditor> regexEditors = new List<RegularExpressionEditor>();
         public BindingList<RegexTemplate> regexTemplates = new BindingList<RegexTemplate>();
 
         public TextGrater()
@@ -48,6 +52,26 @@ namespace TextGrater
                 this.createEditor();
 
             scContext.BeginUndoAction();
+            TextGrater.SetClipboardViewer(this.Handle);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0308 && this.rbClipboardMode.Checked)
+                this.doClipboardUpdate();
+            else
+                base.WndProc(ref m);
+        }
+
+        private void doClipboardUpdate()
+        {
+            string clip = Clipboard.GetText();
+            string newClip = this.doReplace(clip.Replace("\r", "")).Replace("\n", Environment.NewLine);
+            if (clip != newClip)
+            {
+                Clipboard.SetText(newClip);
+                System.Media.SystemSounds.Beep.Play();
+            }
         }
 
         private RegularExpressionEditor createEditor()
@@ -60,29 +84,6 @@ namespace TextGrater
             splitContainer3.Panel1.Controls.Add(rexedit);
             regexEditors.Add(rexedit);
             return rexedit;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.scContext.EndUndoAction();
-            this.scContext.BeginUndoAction();
-            RegexOptions options = this.regexOptions();
-
-            string text = scContext.Text.Replace("\r", "");
-            foreach (RegularExpressionEditor rexedit in this.regexEditors.OrderBy(x => x.Index))
-                if (rexedit.UserEnabled)
-                {
-                    try
-                    {
-                        text = new Regex(rexedit.Expression, options).Replace(text, Regex.Unescape(rexedit.Replacement));
-                    } catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            scContext.Text = text.Replace("\n", Environment.NewLine);
-
-            this.scContext.EndUndoAction();
         }
 
         private RegexOptions regexOptions()
@@ -106,6 +107,34 @@ namespace TextGrater
                 options |= RegexOptions.Multiline;
 
             return options;
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            this.scContext.EndUndoAction();
+            this.scContext.BeginUndoAction();
+
+            scContext.Text = this.doReplace(scContext.Text.Replace("\r", "")).Replace("\n", Environment.NewLine);
+
+            this.scContext.EndUndoAction();
+        }
+
+        private string doReplace(string text)
+        {
+            RegexOptions options = this.regexOptions();
+            foreach (RegularExpressionEditor rexedit in this.regexEditors.OrderBy(x => x.Index))
+                if (rexedit.UserEnabled)
+                {
+                    try
+                    {
+                        text = new Regex(rexedit.Expression, options).Replace(text, Regex.Unescape(rexedit.Replacement));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            return text;
         }
 
         private void scintilla1_TextChanged(object sender, EventArgs e)
